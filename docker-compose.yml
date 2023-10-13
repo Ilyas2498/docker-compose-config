@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  laravel:
+  
+services:
+#NGINX Service  
+  web:
+    container_name: nginx
+    image: nginx:latest
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - .src:/var/www/html:delegated
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
