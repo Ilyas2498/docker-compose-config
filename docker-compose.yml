@@ -25,7 +25,7 @@ services:
     - 3306:3306
     environment:
       - MYSQL_DATABASE=ptsp
-      - MYSQL_USER=root
+      - MYSQL_USER=ptsp
       - MYSQL_PASSWORD=706Jakarta
       - MYSQL_ROOT_PASSWORD=706Jakarta
 
