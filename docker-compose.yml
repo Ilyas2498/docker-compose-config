@@ -9,7 +9,6 @@ services:
       - 80:80
     volumes:
       - ./nginx/default.conf:/etc/ngnix/conf.d/default.conf
-    depends_on:
 
   php:
     container_name: php
