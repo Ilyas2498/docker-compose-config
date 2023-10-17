@@ -27,7 +27,7 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     ports:
-      -81:80
+      -8081:80
     volumes:
       - "/data/ptsp:/var/www/html"
     restart: unless-stopped
