@@ -25,6 +25,7 @@ services:
       - MYSQL_ROOT_PASSWORD=706Jakarta
 
   ptsp:
+    container_name: ptsp
     image: ptsp
     ports:
       - 81:80
