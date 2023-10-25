@@ -1,34 +1,24 @@
-version: '3.9'
-
 services:
-  nginx:
-    container_name: nginx
-    image: nginx:latest
-    restart: always
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/default.conf:/etc/ngnix/conf.d/default.conf
 
-  database:
-    container_name: mysql
+  laravel-docker:
+    container_name: laravel-docker
+    build: .
+    volumes:
+      - ./laravel-app:/var/www/html
+    ports:
+      - 9000:80
+  
+  mysql_db:
     image: mysql:8.1
-    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: taravel_docker
     ports:
     - 3306:3306
-    environment:
-      - MYSQL_DATABASE=ptsp
-      - MYSQL_USER=ptsp
-      - MYSQL_PASSWORD=706Jakarta
-      - MYSQL_ROOT_PASSWORD=706Jakarta
-
-  ptsp:
-    container_name: ptsp
-    image: ptsp
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
     ports:
-      - 81:80
-    volumes:
-      - "/data/ptsp:/var/www/html"
-    restart: unless-stopped
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
