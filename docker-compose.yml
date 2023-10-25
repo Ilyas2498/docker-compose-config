@@ -1,5 +1,6 @@
-services:
+version: '3'
 
+services:
   laravel-docker:
     container_name: laravel-docker
     build: .
